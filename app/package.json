@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "description": "App",
+  "author": "Christian Blaschke <mail@platdesign.de>",
+  "version": "0.0.0",
+  "dependencies": {
+    "hapi": "^13.5.0",
+    "inert": "^4.0.1",
+    "pug": "^2.0.0-beta3",
+    "seneca": "^2.1.0",
+    "vision": "^4.1.0"
+  },
+  "repository": "",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "lab -v",
+    "watch-assets": "gulp watch",
+    "build-assets": "gulp build"
+  }
+}

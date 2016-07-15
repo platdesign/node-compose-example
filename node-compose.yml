@@ -1,0 +1,16 @@
+app:
+  build: './app'
+  command: node server
+  environment:
+    - NODE_ENV=development
+    - PORT=4444
+    - HOST=127.0.0.1
+    - SRV_USER_PORT=4445
+    - SRV_USER_HOST=127.0.0.1
+
+service_user:
+  build: './service-user'
+  environment:
+    - NODE_ENV=development
+    - PORT=4445
+    - HOST=127.0.0.1

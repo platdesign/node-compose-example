@@ -1,0 +1,37 @@
+body {
+	font-family: sans-serif;
+	background:#222;
+	color: #eaeaea;
+	text-align: center;
+	font-size: 16px;
+}
+
+h2 {
+	font-weight: 100;
+	opacity: .5;
+}
+
+.user {
+	text-align: left;
+	width: 600px;
+	margin: 20px auto;
+	white-space: pre;
+	background:#eaeaea;
+	color: #222;
+	font-family: monospace;
+	padding: 10px;
+	font-size: .8em;
+}
+
+.btn--loaduser {
+	background: rgba(#eaeaea, .8);
+	border: none;
+	border-radius: 3px;
+	padding: .6em .7em;
+	font-size: 1.2em;
+	outline: none;
+
+	&:active {
+		box-shadow: inset 0 0 5px 0 rgba(black, .8);
+	}
+}

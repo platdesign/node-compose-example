@@ -1,0 +1,9 @@
+{
+	"ignore":[
+		".git",
+		"assets-src/",
+		"assets-dist/",
+		"gulpfile.js",
+		"test/"
+	]
+}
