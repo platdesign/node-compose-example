@@ -7,7 +7,8 @@ Example project using node-compose
 
 ```shell
 $ git clone https://github.com/platdesign/node-compose-example.git && cd node-compose-example
-$ cd app && npm install && cd ../service-user && npm install & cd ..
+$ cd app && npm install
+$ cd service-user && npm install
 ```
 
 # Running node-compose
