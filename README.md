@@ -5,9 +5,8 @@ Example project using node-compose
 
 # Install
 
-
 ```shell
-$ git clone 
+$ git clone https://github.com/platdesign/node-compose-example.git && cd node-compose-example
 $ cd app && npm install
 $ cd service-user && npm install
 ```
@@ -21,7 +20,6 @@ Start node-compose shell with
 ```shell
 $ node-compose
 ```
-
 
 and open the monitor by executing
 
