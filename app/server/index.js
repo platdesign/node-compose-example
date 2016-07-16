@@ -17,80 +17,34 @@ seneca.client({
 
 
 
-Promise.resolve()
-	.then( registerPlugins(server) )
-	.then( registerViews(server) )
-	.then( registerRoutes(server) )
-	.then( startServer(server) )
+server.register([
+	{
+		register: require('vision')
+	},
+	{
+		register: require('inert')
+	}
+])
+.then(() => {
 
-	.then(() => {
-		console.log(server.info);
-	},(err) => {
-		console.error(err);
-		process.exit(1);
+	server.views({
+		engines: { pug: require('pug') },
+		path: path.join(__dirname, 'views'),
+		compileOptions: {
+			pretty: true
+		},
+		isCached: false
 	});
 
+	require('./routes')(server);
 
+	return server.start();
 
+})
+.then(() => {
+	console.log(server.info);
+},(err) => {
+	console.error(err);
+	process.exit(1);
+});
 
-function registerPlugins(server) {
-
-	return function() {
-		return new Promise((resolve, reject) => {
-			server.register([
-				{
-					register: require('vision')
-				},
-				{
-					register: require('inert')
-				}
-			], (err) => {
-
-				if(err) {
-					return reject(err);
-				}
-
-				resolve();
-
-			});
-		})
-	}
-
-}
-
-
-function registerRoutes(server) {
-	return function() {
-		require('./routes')(server);
-	}
-}
-
-function registerViews(server) {
-	return function() {
-
-		server.views({
-			engines: { pug: require('pug') },
-			path: path.join(__dirname, 'views'),
-			compileOptions: {
-				pretty: true
-			},
-			isCached: false
-		});
-
-	}
-}
-
-
-function startServer(server) {
-	return function() {
-		return new Promise((resolve, reject) => {
-			server.start((err) => {
-				if(err) {
-					return reject(err);
-				}
-
-				resolve();
-			});
-		})
-	}
-}
